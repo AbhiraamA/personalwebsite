@@ -1,0 +1,359 @@
+.work-timeline-container {
+  max-height: 420px;
+  overflow-y: auto;
+  padding: 2rem 0;
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: #38bdf8 #23272f;
+}
+
+
+
+.work-timeline-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.work-timeline-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #38bdf8 0%, #0ea5e9 100%);
+  border-radius: 8px;
+}
+
+.work-timeline-container::-webkit-scrollbar-track {
+  background: #23272f;
+  border-radius: 8px;
+}
+
+.vertical-timeline {
+  position: relative;
+  margin: 0 auto;
+  padding: 2rem 0;
+  width: 100%;
+  max-width: 900px;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 2rem 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 0.5rem;
+  left: 100%;
+  transform: translateX(0%);
+  width: 21px;
+  height: 21px;
+  background: #38bdf8;
+  border: 3px solid #38bdf8;
+  border-radius: 50%;
+  box-shadow: 0 0 25px 5px #38bdf8, 0 0 0 2px #38bdf8;
+  z-index: 2;
+}
+
+.timeline-content {
+  /* background: #fffdf7; */
+  background: #ffffff;
+
+  border: 2px solid #38bdf8;
+  border-radius: 2rem;
+  padding: 1.5rem 2.5rem;
+  color: #071023; /* dark text for readability on white */
+  box-shadow: 0 0 10px rgba(56,189,248,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.timeline-content:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #38bdf8;
+}
+
+.timeline-date {
+  color: #071023;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  height: 2rem; /* match dot height for vertical centering */
+}
+
+.timeline-item:nth-child(odd) .timeline-date {
+  margin-right: 48px;
+}
+
+.timeline-item:nth-child(even) .timeline-date {
+  margin-left: 48px;
+}
+
+/* Center vertical line */
+.vertical-timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: #38bdf8;
+  z-index: 1;
+  
+}
+
+/* Odd: left, Even: right */
+.timeline-item:nth-child(odd) {
+  
+  left: 0;
+  text-align: right;
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  margin-right: 40px;
+  width: 100%;
+  max-width: none;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  margin-left: 40px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+  right: -11px;
+  left: auto;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -11px;
+  right: auto;
+}
+
+.timeline-content .timeline-institution {
+  color: #071023;
+}
+
+.timeline-content .timeline-role {
+  color: #071023;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.timeline-content .timeline-description {
+  color: #1f2937; /* dark gray for body text */
+  max-width: 600px;
+}
+
+.timeline-item:nth-child(odd) .timeline-institution {
+  text-align: right;
+  width: 100%;
+}
+
+
+/* Add company logo box styles */
+.timeline-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #ffffff;
+  /* box-shadow: 0 2px 8px rgba(30,58,138,0.10); */
+  /* display: flex; */
+  object-fit: contain;
+  position: static;
+  margin: 0 1rem 0 0;
+  
+}
+
+.timeline-item:nth-child(even) .timeline-institution-row {
+  justify-content: space-between;
+}
+
+.timeline-item:nth-child(even) .timeline-logo {
+  margin-left: auto;
+  margin-right: 0;
+  align-self: flex-start;
+}
+
+.timeline-item:nth-child(odd) .timeline-institution-row {
+  justify-content: space-between;      
+}
+
+.timeline-item:nth-child(odd) .timeline-logo {
+  margin-right: auto;
+  margin-left: 0;
+  align-self: flex-end;
+}
+
+/* Flex row for institution and logo */
+.timeline-institution-row {
+  display: flex;
+  align-items: center;
+}
+
+.timeline-item:nth-child(odd) .timeline-institution-row {
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: right;
+  width: 100%;
+}
+
+.timeline-item:nth-child(odd) .timeline-description {
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.timeline-item:nth-child(even) .timeline-description {
+  max-width: 800px;
+}
+
+.timeline-institution-odd {
+  text-align: right;
+  flex: 1;
+} 
+
+/* Horizontal timeline styles (for Experience page) */
+.horizontal-timeline-container {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem 0 2rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  /* Add timeline line */
+}
+
+.horizontal-timeline-line {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
+  z-index: 0;
+  transform: translateY(-50%);
+}
+
+.horizontal-timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  background: #38bdf8;
+  border: 3px solid #0ea5e9;
+  border-radius: 50%;
+  box-shadow: 0 0 18px 4px #38bdf8, 0 0 0 2px #38bdf8;
+  z-index: 2;
+}
+
+.horizontal-timeline-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.horizontal-timeline-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
+  border-radius: 8px;
+}
+
+.horizontal-timeline-item {
+  /* smaller by default so 4-5 cards fit on typical desktop widths */
+  min-width: 240px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+.horizontal-timeline-card {
+  background: #ffffff;
+  border: 2px solid #38bdf8;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.08);
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  transform-origin: left center;
+  /* keep the card small by default so content length doesn't change layout */
+  height: 110px;
+  overflow: hidden; /* keep inner text clipped; popup is absolutely positioned */
+  color: #071023; /* ensure all text inside cards is dark */
+}
+
+
+.horizontal-timeline-item:hover,
+.horizontal-timeline-item:focus-within {
+  transform: translateY(-6px) scale(1.06);
+  z-index: 70;
+}
+
+.horizontal-timeline-card {
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.horizontal-timeline-item:hover .horizontal-timeline-card,
+.horizontal-timeline-item:focus-within .horizontal-timeline-card {
+  box-shadow: 0 0 32px 8px #38bdf8, 0 0 0 4px #0ea5e9;
+  border-color: #0ea5e9;
+}
+
+.horizontal-timeline-card {
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+/* Slightly bigger items on larger screens for nicer spacing */
+@media (min-width: 1280px) {
+  .horizontal-timeline-item { min-width: 280px; }
+}
+
+@media (min-width: 1600px) {
+  .horizontal-timeline-item { min-width: 320px; }
+}
+
+/* Popup panel that appears above the card on hover; does not affect layout */
+.horizontal-timeline-item {
+  position: relative;
+}
+
+
+/* Popup removed - overlay CSS deleted */
+
+.horizontal-timeline-date {
+  color: #071023;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.horizontal-timeline-institution {
+  color: #071023;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.horizontal-timeline-role {
+  color: #071023;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.horizontal-timeline-description {
+  color: #1f2937;
+}
