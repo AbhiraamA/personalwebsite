@@ -70,7 +70,8 @@ export default function Navbar({ className = "" }: NavbarProps) {
   const scrollOrNavigate = (sectionId: string) => {
     setIsOpen(false);
     if (sectionId.startsWith("/")) {
-      router.push(basePath + sectionId);
+      const target = sectionId.startsWith(basePath) ? sectionId : basePath + sectionId;
+      router.push(target);
       return;
     }
     const element = document.getElementById(sectionId);

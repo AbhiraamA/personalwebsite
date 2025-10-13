@@ -251,18 +251,6 @@ export default function Home() {
   { src: `${basePath}/landingpage/hurricanes.jpg`, title: "Hurricanes Game", blurb: "Me at a Hurricanes hockey game." },
   { src: `${basePath}/landingpage/IMG_6744.jpg`, title: "Mountain Views", blurb: "Me at the mountains." },
   ];
-
-  const analyticsProjects: Project[] = [
-  { title: "Coach Success Modeling", description: "2,000+ coaches, regression on experience vs outcomes", image: "/project-imgs/buckshack.png", tech: ["Python", "Pandas", "scikit-learn"], github: "https://github.com/AbhiraamA" },
-    { title: "Pitching IVB/VAA Dash", description: "TrackMan analysis for UNC pitchers", image: "/project-imgs/tourist.gif", tech: ["R", "Shiny", "ggplot2"], link: "https://…" },
-  { title: "Expected HR @ Bosh", description: "Model for HR probability by approach & launch", image: "/project-imgs/wildfire.png", tech: ["Python", "XGBoost"], github: "https://github.com/AbhiraamA" },
-  ];
-
-  const softwareProjects: Project[] = [
-    { title: "Study Buddy Agents", description: "FastAPI + CrewAI agents that generate quizzes", image: "/project-imgs/studybud.gif", tech: ["Python", "FastAPI", "CrewAI"], link: "https://…" },
-  { title: "Resume Keyworder", description: "Next.js tool to align resumes to JDs", image: "/project-imgs/studybuddy.png", tech: ["Next.js", "OpenAI"], github: "https://github.com/AbhiraamA" },
-  { title: "Contract DB Pipeline", description: "ETL from OverTheCap to SQL with analytics views", image: "/hero-imgs/usc_tennis.jpeg", tech: ["Python", "SQL"], github: "https://github.com/AbhiraamA" },
-  ];
   // ------------------------------------------------------------------------------
 
   const isMobile = useIsMobile();
@@ -275,8 +263,8 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      {/* HERO / LANDING SECTION (new) ================================================================ */}
-      <section id="hero" className="relative min-h-[100vh] flex items-center py-32 mb-32">
+      {/* LANDING SECTION (new) ================================================================ */}
+      <section id="landing" className="relative min-h-[100vh] flex items-center py-32 mb-32">
         <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center gap-8 px-4">
           {/* LEFT: Intro text */}
           <div className="flex-1 text-left">
@@ -285,14 +273,13 @@ export default function Home() {
             <p className="text-3xl md:text-4xl text-[#98d6ff] font-semibold">
               <TypewriterWords words={["Software Engineer", "Machine Learning Engineer", "Data Scientist", "Data Analyst", "Researcher", "Eagle Scout", "Athlete", "Writer", "Developer", "six seven"]} />
             </p>
-            {/* Buttons removed as requested */}
           </div>
 
           {/* RIGHT: Illustration */}
           <div className="w-full md:w-1/2">
             <div className="relative">
-              <img src="/landingpage/lander.png" alt="Hero illustration" className="rounded-2xl shadow-2xl w-full object-cover max-h-[520px]" />
-              <img src={`${basePath}/landingpage/lander.png`} alt="Hero illustration" className="rounded-2xl shadow-2xl w-full object-cover max-h-[520px]" />
+              <img src="/landingpage/lander.png" alt="landing image" className="rounded-2xl shadow-2xl w-full object-cover max-h-[520px]" />
+              <img src={`${basePath}/landingpage/lander.png`} alt="landing image" className="rounded-2xl shadow-2xl w-full object-cover max-h-[520px]" />
             </div>
           </div>
         </div>
