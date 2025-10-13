@@ -15,42 +15,42 @@ const projects = [
     {
       title: "Coach Success Modeling – San Francisco 49ers",
       description: "Collaborated with the San Francisco 49ers to model how past experience can predict future coaching success.",
-      image: "/logos/coach-success.png",
+  image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/coach-success.png`,
       tech: ["Python", "Pandas", "scikit-learn", "Excel"],
       github: "https://github.com/AbhiraamA"
     },
     {
   title: "Milwaukee Bucks Business Analytics Hackathon",
   description: "Placed 2nd for developing a model that predicted purchase likelihood for new partial ticket plans.",
-  image: "/logos/buckshack.png",
+  image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/buckshack.png`,
   tech: ["Python", "scikit-learn", "Pandas", "Matplotlib"],
   github: "https://github.com/AbhiraamA"
 },
     {
       title: "Pearson",
       description: "Built dynamic agent generation workflows using CrewAI to automate test script generation",
-      image: "/logos/pearsonlog.png",
+  image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/pearsonlog.png`,
       tech: ["Python", "CrewAI"],
       github: "https://github.com/AbhiraamA"
     },
     {
       title: "EpicHire Recommendation Engine",
       description: "Developed a club–employer recommendation engine using jobBERT embeddings.",
-      image: "/logos/epichire_logo.jpeg",
+  image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/epichire_logo.jpeg`,
       tech: ["Python", "Pandas", "scikit-learn", "jobBERT"],
       github: "https://github.com/AbhiraamA"
     },
     {
       title: "AI Study Buddy",
       description: "Created an intelligent study assistant that leverages structured knowledge bases to generate adaptive questions.",
-      image: "/logos/study-buddy.png",
+  image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/study-buddy.png`,
       tech: ["Python", "FastAPI", "PostgreSQL", "PyTest", "OpenAI 04-mini"],
       github: "https://github.com/AbhiraamA"
     },
     {
       title: "The Traveling Tourist Problem",
       description: "Hackathon-winning web app using Tour-Pedia API to recommend hidden attractions and build itineraries for lesser-known destinations.",
-      image: "/logos/tourist.gif",
+  image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/tourist.gif`,
       tech: ["JavaScript", "HTML", "CSS", "Python", "Tour-Pedia API"],
       github: "https://github.com/AbhiraamA"
     }

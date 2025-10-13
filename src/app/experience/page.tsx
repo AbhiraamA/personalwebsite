@@ -6,12 +6,12 @@ import workTimelineStyles from "@/app/WorkTimeline.module.css";
 
 // Experience data: only title, company, and dates
 const experiences = [
-  { role: "Data Science Intern", institution: "New York Red Bulls", startDate: "2025-09-01", endDate: "Present", image: "/logos/New_York_Red_Bulls_logo.svg.png" },
-  { role: "Data Analyst", institution: "Carolina Baseball", startDate: "2024-09-01", endDate: "Present", image: "/logos/baseball log.jpeg" },
-  { role: "Software Engineer Intern", institution: "Pearson", startDate: "2025-06-01", endDate: "2025-08-31", image: "/logos/pearsonlog.png" },
-  { role: "Research Assistant", institution: "UNC School of Medicine", startDate: "2024-07-01", endDate: "2025-03-31", image: "/logos/fmri-log.png" },
-  { role: "Machine Learning Intern", institution: "Epic Hire, Inc.", startDate: "2024-09-01", endDate: "2024-11-30", image: "/logos/epichire_logo.jpeg" },
-  { role: "Project Team Member", institution: "CS+Social Good", startDate: "2024-01-01", endDate: "2024-05-31", image: "/logos/unc-cs-sg.jpeg" },
+  { role: "Data Science Intern", institution: "New York Red Bulls", startDate: "2025-09-01", endDate: "Present", image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/New_York_Red_Bulls_logo.svg.png` },
+  { role: "Data Analyst", institution: "Carolina Baseball", startDate: "2024-09-01", endDate: "Present", image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/baseball log.jpeg` },
+  { role: "Software Engineer Intern", institution: "Pearson", startDate: "2025-06-01", endDate: "2025-08-31", image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/pearsonlog.png` },
+  { role: "Research Assistant", institution: "UNC School of Medicine", startDate: "2024-07-01", endDate: "2025-03-31", image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/fmri-log.png` },
+  { role: "Machine Learning Intern", institution: "Epic Hire, Inc.", startDate: "2024-09-01", endDate: "2024-11-30", image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/epichire_logo.jpeg` },
+  { role: "Project Team Member", institution: "CS+Social Good", startDate: "2024-01-01", endDate: "2024-05-31", image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/unc-cs-sg.jpeg` },
 ];
 
 // Helper to format dates from YYYY-MM-DD or show Present
@@ -30,14 +30,14 @@ const clubs = [
     name: "UNC CS Ambassadors",
     role: "Ambassador",
     description: "Representing and supporting the UNC Computer Science Department at outreach, recruitment events, and mental health initiatives.",
-    image: "/logos/UNC-Computer-Science.png",
+  image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/UNC-Computer-Science.png`,
     link: "https://cs.unc.edu/student-life/unc-cs-student-ambassador-program/#:~:text=Student%20Ambassadors%20(SAs)%20are%20a,UNC%20alumni%2C%20and%20business%20professionals.",
   },
   {
     name: "Kappa Theta Pi",
     role: "Treasurer",
     description: "Professional Co-Ed Technology and Computer Science Organization at UNC",
-    image: "/clubs/ktp_unc_logo.jpeg",
+  image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/clubs/ktp_unc_logo.jpeg`,
     roleColor: "text-blue-600",
     link: "https://www.ktpunc.com/",
   },
@@ -45,21 +45,21 @@ const clubs = [
     name: "Carolina AR/VR Club",
     role: "Member/Developer",
     description: "Exploring and building augmented and virtual reality projects with UNC's AR/VR community.",
-    image: "/logos/CARVR-logo-white.avif",
+  image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/CARVR-logo-white.avif`,
     link: "https://arvr.web.unc.edu/",
   },
   {
     name: "HackNC",
     role: "Logistics Board",
     description: "Organizing and participating in UNC's largest hackathon and tech community.",
-    image: "/logos/hacknc-2024.avif",
+  image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/hacknc-2024.avif`,
     link: "https://hacknc.com/",
   },
   {
     name: "Special Olympics Club",
     role: "Volunteer",
     description: "Supporting and volunteering for Special Olympics events and athletes at UNC.",
-    image: "/logos/UNC-SO.jpeg",
+  image: `${process.env.NEXT_PUBLIC_BASE_PATH || ""}/logos/UNC-SO.jpeg`,
     link: "https://www.instagram.com/unc_so/",
   },
 ];

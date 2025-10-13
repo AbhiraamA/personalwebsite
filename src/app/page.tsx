@@ -12,7 +12,7 @@ import workTimelineStyles from './WorkTimeline.module.css';
 import { VscVscode } from 'react-icons/vsc';
 
 // basePath used to resolve static assets when deployed to a subpath (matches Navbar.tsx)
-const basePath = "/personalwebsite";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 import Navbar from "@/components/Navbar";
 import ProjectCard from "@/components/ProjectCard";
 import ImageCarousel, { GalleryItem } from "@/components/ImageCarousel";
