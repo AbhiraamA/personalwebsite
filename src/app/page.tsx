@@ -12,7 +12,7 @@ import workTimelineStyles from './WorkTimeline.module.css';
 import { VscVscode } from 'react-icons/vsc';
 
 // basePath used to resolve static assets when deployed to a subpath (matches Navbar.tsx)
-const basePath = "/personal-website2026";
+const basePath = "/personalwebsite";
 import Navbar from "@/components/Navbar";
 import ProjectCard from "@/components/ProjectCard";
 import ImageCarousel, { GalleryItem } from "@/components/ImageCarousel";
@@ -244,12 +244,12 @@ export default function Home() {
   // --- Small sample data used by the new carousel/tech sections ---
 
   const aboutGallery: GalleryItem[] = [
-  { src: "/landingpage/headshot.jpeg", title: "Headshot", blurb: "A professional headshot." },
-  { src: "/landingpage/baseball.jpg", title: "Baseball Film Crew", blurb: "Me on the job capturing film at a baseball game." },
-  { src: "/landingpage/Dog.jpg", title: "My Dog", blurb: "My dog, always up for an adventure." },
-  { src: "/landingpage/food.jpg", title: "Good Food", blurb: "Some good eats." },
-  { src: "/landingpage/hurricanes.jpg", title: "Hurricanes Game", blurb: "Me at a Hurricanes hockey game." },
-  { src: "/landingpage/IMG_6744.jpg", title: "Mountain Views", blurb: "Me at the mountains." },
+  { src: `${basePath}/landingpage/headshot.jpeg`, title: "Headshot", blurb: "A professional headshot." },
+  { src: `${basePath}/landingpage/baseball.jpg`, title: "Baseball Film Crew", blurb: "Me on the job capturing film at a baseball game." },
+  { src: `${basePath}/landingpage/Dog.jpg`, title: "My Dog", blurb: "My dog, always up for an adventure." },
+  { src: `${basePath}/landingpage/food.jpg`, title: "Good Food", blurb: "Some good eats." },
+  { src: `${basePath}/landingpage/hurricanes.jpg`, title: "Hurricanes Game", blurb: "Me at a Hurricanes hockey game." },
+  { src: `${basePath}/landingpage/IMG_6744.jpg`, title: "Mountain Views", blurb: "Me at the mountains." },
   ];
 
   const analyticsProjects: Project[] = [
@@ -292,6 +292,7 @@ export default function Home() {
           <div className="w-full md:w-1/2">
             <div className="relative">
               <img src="/landingpage/lander.png" alt="Hero illustration" className="rounded-2xl shadow-2xl w-full object-cover max-h-[520px]" />
+              <img src={`${basePath}/landingpage/lander.png`} alt="Hero illustration" className="rounded-2xl shadow-2xl w-full object-cover max-h-[520px]" />
             </div>
           </div>
         </div>

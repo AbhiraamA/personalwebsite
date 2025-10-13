@@ -8,7 +8,7 @@ import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter, usePathname } from "next/navigation";
 
-const basePath = "/personal-website2026";
+const basePath = "/personalwebsite";
 
 interface NavbarProps {
   className?: string;
@@ -70,7 +70,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
   const scrollOrNavigate = (sectionId: string) => {
     setIsOpen(false);
     if (sectionId.startsWith("/")) {
-      router.push(sectionId);
+      router.push(basePath + sectionId);
       return;
     }
     const element = document.getElementById(sectionId);
@@ -81,8 +81,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
 
     // If element not found, navigate to home and then attempt to scroll after navigation completes
     // Use a small delay to allow the page to render the section on the home route.
-    // navigate to home then attempt to scroll after a short delay
-    router.push("/");
+    router.push(basePath + "/");
     setTimeout(() => {
       const el = document.getElementById(sectionId);
       if (el) el.scrollIntoView({ behavior: "smooth" });
