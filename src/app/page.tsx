@@ -199,47 +199,7 @@ export default function Home() {
   const educationExperiences = experiences.filter(exp => exp.type === "education");
   const workExperiences = experiences.filter(exp => exp.type === "work");
 
-  // =========================================
-  // ==================CLUBS==================
-
-  const clubs = [
-    {
-      name: "App Team Carolina",
-      role: "IOS Apprentice Developer",
-      description: "Applying and learning advanced IOS skills for App Development and Production",
-      image: `${basePath}/clubs/appteamlogo.jpeg`,
-      link: "https://appteamcarolina.com/",
-    },
-    {
-      name: "Kappa Theta Pi",
-      role: "Community Service Director",
-      description: "Professional Co-Ed Technology and Computer Science Organization at UNC",
-      image: `${basePath}/clubs/ktp_unc_logo.jpeg`,
-      roleColor: "text-blue-600",
-      link: "https://www.ktpunc.com/",
-    },
-    {
-      name: "AI@UNC",
-      role: "",
-      description: "Gaining hands-on practice working with AI libraries and frameworks & understanding the of uses of AI",
-      image: `${basePath}/clubs/aiclubunc.jpeg`,
-      link: "https://heellife.unc.edu/organization/aiunc",
-    },
-    {
-      name: "UNC Club Tennis",
-      role: "",
-      description: "Among the Top 15 Players on the UNC Club Tennis team, traveling to numerous tournaments across different states",
-      image: `${basePath}/clubs/Club_Tennis.JPG`,
-      link: "https://heellife.unc.edu/organization/club-tennis",
-    },
-    {
-      name: "Asian American Students Association",
-      role: "",
-      description: "Engaging with students to help promote Asian culture & traditions while fostering community with students of Asian descent",
-      image: `${basePath}/clubs/AASA_UNC.jpeg`,
-      link: "https://heellife.unc.edu/organization/aasa",
-    },
-  ];
+  // (Clubs removed — moved into Experience as needed)
   
   // --- Small sample data used by the new carousel/tech sections ---
 
@@ -422,7 +382,8 @@ export default function Home() {
                 { role: "Software Engineer Intern", institution: "Pearson", startDate: "2025-06-01", endDate: "2025-08-31", image: `${basePath}/logos/pearsonlog.png` },
                 { role: "Research Assistant", institution: "UNC School of Medicine", startDate: "2024-07-01", endDate: "2025-03-31", image: `${basePath}/logos/fmri-log.png` },
                 { role: "Machine Learning Intern", institution: "Epic Hire, Inc.", startDate: "2024-09-01", endDate: "2024-11-30", image: `${basePath}/logos/epichire_logo.jpeg` },
-                { role: "Project Team Member", institution: "CS+Social Good", startDate: "2024-01-01", endDate: "2024-05-31", image: `${basePath}/logos/unc-cs-sg.jpeg` },
+                  { role: "Project Team Member", institution: "CS+Social Good", startDate: "2024-01-01", endDate: "2024-05-31", image: `${basePath}/logos/unc-cs-sg.jpeg` },
+                  { role: "Member", institution: "UNC CS Ambassadors", startDate: "2025-05-01", endDate: "Present", image: `${basePath}/logos/UNC-Computer-Science.png` },
               ].map((exp, idx) => {
                 // Format date as Month Year
                 const formatDate = (d: string) => {
@@ -442,56 +403,6 @@ export default function Home() {
                     <div className="font-bold text-lg text-[#13294B] text-center w-full">{exp.role}</div>
                     <div className="text-sm text-gray-600">{exp.institution}</div>
                   </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* CLUBS SECTION (merged from experience/page.tsx) */}
-      <section id="interests" className="py-8 px-4 md:px-8 bg-card">
-        <div className="w-full max-w-screen-xl mx-auto">
-          <div className="flex flex-col items-center mb-8">
-            <h2 className="text-3xl font-bold text-white text-center">Clubs</h2>
-            <div className="flex justify-center items-center w-3/4 max-w-[240px] mx-auto mt-2">
-              <div className="h-0.5 w-full bg-blue-400 rounded" />
-            </div>
-          </div>
-          <div className="mb-12">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 px-4">
-              {[
-                { name: "UNC CS Ambassadors", role: "Ambassador", description: "Representing and supporting the UNC Computer Science Department at outreach, recruitment events, and mental health initiatives.", image: `${basePath}/logos/UNC-Computer-Science.png`, link: "https://cs.unc.edu/student-life/unc-cs-student-ambassador-program/#:~:text=Student%20Ambassadors%20(SAs)%20are%20a,UNC%20alumni%2C%20and%20business%20professionals." },
-                { name: "Kappa Theta Pi", role: "Treasurer", description: "Professional Co-Ed Technology and Computer Science Organization at UNC", image: `${basePath}/clubs/ktp_unc_logo.jpeg`, roleColor: "text-blue-600", link: "https://www.ktpunc.com/" },
-                { name: "Carolina AR/VR Club", role: "Member/Developer", description: "Exploring and building augmented and virtual reality projects with UNC's AR/VR community.", image: `${basePath}/logos/CARVR-logo-white.avif`, link: "https://arvr.web.unc.edu/" },
-                { name: "HackNC", role: "Logistics Board", description: "Organizing and participating in UNC's largest hackathon and tech community.", image: `${basePath}/logos/hacknc-2024.avif`, link: "https://hacknc.com/" },
-                { name: "Special Olympics Club", role: "Volunteer", description: "Supporting and volunteering for Special Olympics events and athletes at UNC.", image: `${basePath}/logos/UNC-SO.jpeg`, link: "https://www.instagram.com/unc_so/" },
-              ].map((club) => {
-                const roleColor = club.roleColor ? club.roleColor : "text-[#a855f7]";
-                return (
-                  <a
-                    key={club.name}
-                    href={club.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block"
-                  >
-                    <div
-                      className="relative w-full h-64 overflow-hidden transition-shadow flex flex-col items-center justify-start px-6 py-4 rounded-1xl bg-white text-black hover:shadow-[0_0_32px_8px_#38bdf8,0_0_0_4px_#0ea5e9] hover:border-[#0ea5e9] border border-border"
-                    >
-                      <div className="w-full h-20 flex items-center justify-center mb-0 z-0">
-                        <img src={club.image} alt={club.name} className="w-16 h-16 object-contain rounded-full" style={{ maxWidth: '80%' }} />
-                      </div>
-                      <div className="flex flex-col items-center justify-center flex-1 w-full text-center z-0">
-                        <h4 className="text-base font-bold mb-1 text-black">{club.name}</h4>
-                        {club.role && (
-                          <div className={`text-xs italic mb-1 ${roleColor}`}>{club.role}</div>
-                        )}
-                        <p className="text-xs text-gray-600">{club.description}</p>
-                      </div>
-                    </div>
-                  </a>
                 );
               })}
             </div>
@@ -547,50 +458,25 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-  <footer className="bg-card text-white py-8 px-4">
+      <footer className="bg-card text-white py-8 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <p className="text-lg font-semibold">Abhiraam Aremanda</p>
-              <p className="text-sm opacity-75">
-                Computer Science & Statistics @ UNC Chapel Hill
-              </p>
+              <p className="text-sm opacity-75">Computer Science & Statistics @ UNC Chapel Hill</p>
             </div>
             <div className="flex gap-4">
-              <Button
-                asChild
-                variant="ghost"
-                size="icon"
-                className="text-white hover:bg-white/10 rounded-full"
-              >
-                <Link
-                  href="https://github.com/AbhiraamA"
-                  target="_blank"
-                  aria-label="GitHub"
-                >
+              <Button asChild variant="ghost" size="icon" className="text-white hover:bg-white/10 rounded-full">
+                <Link href="https://github.com/AbhiraamA" target="_blank" aria-label="GitHub">
                   <FontAwesomeIcon icon={faGithub} className="h-5 w-5" />
                 </Link>
               </Button>
-              <Button
-                asChild
-                variant="ghost"
-                size="icon"
-                className="text-white hover:bg-white/10 rounded-full"
-              >
-                <Link
-                  href="https://www.linkedin.com/in/abhiraam-aremanda/"
-                  target="_blank"
-                  aria-label="LinkedIn"
-                >
+              <Button asChild variant="ghost" size="icon" className="text-white hover:bg-white/10 rounded-full">
+                <Link href="https://www.linkedin.com/in/abhiraam-aremanda/" target="_blank" aria-label="LinkedIn">
                   <FontAwesomeIcon icon={faLinkedin} className="h-5 w-5" />
                 </Link>
               </Button>
-              <Button
-                asChild
-                variant="ghost"
-                size="icon"
-                className="text-white hover:bg-white/10 rounded-full"
-              >
+              <Button asChild variant="ghost" size="icon" className="text-white hover:bg-white/10 rounded-full">
                 <Link href="mailto:aremanda.abhi@gmail.com" target="_blank" aria-label="Email">
                   <FontAwesomeIcon icon={faEnvelope} className="h-5 w-5" />
                 </Link>
@@ -598,9 +484,7 @@ export default function Home() {
             </div>
           </div>
           <Separator className="my-6 bg-card/20" />
-          <p className="text-center text-sm opacity-75">
-            © {new Date().getFullYear()} Abhiraam Aremanda. All rights reserved.
-          </p>
+          <p className="text-center text-sm opacity-75">© {new Date().getFullYear()} Abhiraam Aremanda. All rights reserved.</p>
         </div>
       </footer>
     </div>
@@ -617,3 +501,5 @@ function useIsMobile(breakpoint = 768) {
   }, [breakpoint]);
   return isMobile;
 }
+
+
