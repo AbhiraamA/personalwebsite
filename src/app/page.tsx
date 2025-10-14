@@ -406,33 +406,45 @@ export default function Home() {
               <div className="h-0.5 w-full bg-blue-400 rounded" />
             </div>
           </div>
-          <div className="overflow-x-auto">
-            <div className="relative">
-              <div className="horizontal-timeline-line" style={{ position: 'absolute', left: 0, top: '50%', width: '100%', height: '4px', background: 'linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%)', zIndex: 0, transform: 'translateY(-50%)' }} />
-              <div className="horizontal-timeline-container" style={{ display: 'flex', gap: '1.5rem', overflowX: 'auto', padding: '1rem 0 2rem', scrollSnapType: 'x mandatory', position: 'relative' }}>
-                {[
-                  { role: "Data Science Intern", institution: "New York Red Bulls", startDate: "2025-09-01", endDate: "Present", description: "Worked on sports analytics and data infrastructure.", image: `${basePath}/logos/New_York_Red_Bulls_logo.svg.png` },
-                  { role: "Data Analyst", institution: "Carolina Baseball", startDate: "2024-09-01", endDate: "Present", description: "Analyzed baseball performance data.", image: `${basePath}/logos/baseball log.jpeg` },
-                  { role: "Software Engineer Intern", institution: "Pearson", startDate: "2025-06-01", endDate: "2025-08-31", description: "Developed agent workflows for test automation.", image: `${basePath}/logos/pearsonlog.png` },
-                  { role: "Research Assistant", institution: "UNC School of Medicine", startDate: "2024-07-01", endDate: "2025-03-31", description: "Researched genetic sequencing data.", image: `${basePath}/logos/fmri-log.png` },
-                  { role: "Machine Learning Intern", institution: "Epic Hire, Inc.", startDate: "2024-09-01", endDate: "2024-11-30", description: "Built resume-matching algorithms.", image: `${basePath}/logos/epichire_logo.jpeg` },
-                  { role: "Project Team Member", institution: "CS+Social Good", startDate: "2024-01-01", endDate: "2024-05-31", description: "Worked on social impact tech projects.", image: `${basePath}/logos/unc-cs-sg.jpeg` },
-                ].map((exp, idx) => (
-                  <div key={idx} className="horizontal-timeline-item" tabIndex={0} style={{ minWidth: '240px', flex: '0 0 auto', scrollSnapAlign: 'start', position: 'relative' }}>
-                    <div className="horizontal-timeline-card group flex items-center justify-between">
-                      <div className="flex flex-col items-start flex-1 pr-4">
-                        <div className="horizontal-timeline-date text-sm text-[#38bdf8] font-medium">{exp.startDate} - {exp.endDate}</div>
-                        <div className="horizontal-timeline-role font-bold text-lg" style={{ color: '#13294B' }}>{exp.role}</div>
-                        <div className="horizontal-timeline-institution text-sm text-gray-300">{exp.institution}</div>
-                        <div className="horizontal-timeline-description text-xs text-gray-600 mt-1">{exp.description}</div>
-                      </div>
-                      {exp.image && (
-                        <img src={exp.image} alt={exp.institution + ' logo'} className="ml-2 w-14 h-14 object-contain rounded" style={{ background: '#fff' }} />
-                      )}
-                    </div>
+          <div
+            className="overflow-x-scroll experience-scrollbar"
+            style={{
+              overflowX: 'scroll',
+              minHeight: '170px',
+              background: 'inherit',
+              scrollbarWidth: 'thin',
+              scrollbarColor: '#38bdf8 #23272f',
+            }}
+          >
+            <div className="flex gap-6 pb-4" style={{scrollSnapType:'x mandatory', overflowX:'auto', minHeight:'170px'}}>
+              {[
+                { role: "Data Science Intern", institution: "New York Red Bulls", startDate: "2025-09-01", endDate: "Present", image: `${basePath}/logos/New_York_Red_Bulls_logo.svg.png` },
+                { role: "Data Analyst", institution: "Carolina Baseball", startDate: "2024-09-01", endDate: "Present", image: `${basePath}/logos/baseball log.jpeg` },
+                { role: "Software Engineer Intern", institution: "Pearson", startDate: "2025-06-01", endDate: "2025-08-31", image: `${basePath}/logos/pearsonlog.png` },
+                { role: "Research Assistant", institution: "UNC School of Medicine", startDate: "2024-07-01", endDate: "2025-03-31", image: `${basePath}/logos/fmri-log.png` },
+                { role: "Machine Learning Intern", institution: "Epic Hire, Inc.", startDate: "2024-09-01", endDate: "2024-11-30", image: `${basePath}/logos/epichire_logo.jpeg` },
+                { role: "Project Team Member", institution: "CS+Social Good", startDate: "2024-01-01", endDate: "2024-05-31", image: `${basePath}/logos/unc-cs-sg.jpeg` },
+              ].map((exp, idx) => {
+                // Format date as Month Year
+                const formatDate = (d: string) => {
+                  if (!d) return "";
+                  if (/present/i.test(d)) return "Present";
+                  try {
+                    const dateObj = new Date(d);
+                    return dateObj.toLocaleString('en-US', { month: 'short', year: 'numeric' });
+                  } catch {
+                    return String(d);
+                  }
+                };
+                return (
+                  <div key={idx} className="bg-white rounded-xl shadow p-4 flex flex-col items-center justify-between min-w-[240px]" style={{scrollSnapAlign:'start'}}>
+                    <img src={exp.image} alt={exp.institution + ' logo'} className="w-14 h-14 object-contain rounded mb-2" style={{ background: '#fff' }} />
+                    <div className="text-sm text-[#38bdf8] font-medium">{formatDate(exp.startDate)} - {formatDate(exp.endDate)}</div>
+                    <div className="font-bold text-lg text-[#13294B] text-center w-full">{exp.role}</div>
+                    <div className="text-sm text-gray-600">{exp.institution}</div>
                   </div>
-                ))}
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>

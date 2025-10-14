@@ -1,3 +1,21 @@
+/* Always show horizontal scrollbar for Experience section */
+.experience-scrollbar {
+  overflow-x: scroll !important;
+  scrollbar-width: thin;
+  scrollbar-color: #38bdf8 #23272f;
+}
+.experience-scrollbar::-webkit-scrollbar {
+  height: 12px;
+  background: #23272f;
+}
+.experience-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #38bdf8 0%, #0ea5e9 100%);
+  border-radius: 8px;
+}
+.experience-scrollbar::-webkit-scrollbar-track {
+  background: #23272f;
+  border-radius: 8px;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
