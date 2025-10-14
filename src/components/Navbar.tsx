@@ -23,7 +23,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
 
   // Define navigation items with IDs and labels. Use a path (leading slash) to indicate a route.
   const navItems = [
-    { id: "hero", label: "Home" },
+    { id: "landing", label: "Home" },
     { id: "about", label: "About" },
     { id: "experience", label: "Experience" },
     { id: "projects", label: "Projects" },
@@ -80,12 +80,16 @@ export default function Navbar({ className = "" }: NavbarProps) {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo/Name */}
-        <Link
-          href="/"
+        <a
+          href="#landing"
           className="text-xl font-bold text-navy hover:text-light-blue transition-colors"
+          onClick={e => {
+            e.preventDefault();
+            scrollOrNavigate('landing');
+          }}
         >
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-blue-500">Abhiraam Aremanda</span>
-        </Link>
+        </a>
 
         {/* Desktop Navigation - Centered */}
         <div className="hidden md:flex flex-1 justify-center space-x-8">
