@@ -25,8 +25,8 @@ export default function Navbar({ className = "" }: NavbarProps) {
   const navItems = [
     { id: "hero", label: "Home" },
     { id: "about", label: "About" },
-    { id: "/experience", label: "Experience" },
-    { id: "/projects", label: "Projects" },
+    { id: "experience", label: "Experience" },
+    { id: "projects", label: "Projects" },
   ];
 
   // Handle scroll events to update navbar appearance and active section for in-page sections
@@ -35,8 +35,7 @@ export default function Navbar({ className = "" }: NavbarProps) {
       const scrollPosition = window.scrollY;
       setScrolled(scrollPosition > 20);
 
-      // Only consider nav items that are in-page IDs (not routes)
-      const sections = navItems.filter((it) => !it.id.startsWith("/")).map((it) => it.id);
+      const sections = navItems.map((it) => it.id);
       const sectionElements = sections.map((id) => document.getElementById(id));
 
       sectionElements.forEach((section, index) => {
@@ -51,38 +50,20 @@ export default function Navbar({ className = "" }: NavbarProps) {
       });
     };
 
-    // If current pathname is a route (e.g., /projects), set activeSection accordingly and skip scroll listener
-    if (pathname && pathname.startsWith("/")) {
-      // If we are on the projects page, highlight /projects
-      if (pathname === "/projects") {
-        setActiveSection("/projects");
-      }
-      // still attach scroll for when user navigates back to home
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    } else {
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }
-  }, [pathname]);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Navigate or scroll to section
   const scrollOrNavigate = (sectionId: string) => {
     setIsOpen(false);
-    if (sectionId.startsWith("/")) {
-  const target = sectionId.startsWith(basePath) ? sectionId : basePath + sectionId;
-  router.push(target);
-  return;
-    }
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
       return;
     }
-
     // If element not found, navigate to home and then attempt to scroll after navigation completes
-    // Use a small delay to allow the page to render the section on the home route.
-  router.push(basePath + "/");
+    router.push(basePath + "/");
     setTimeout(() => {
       const el = document.getElementById(sectionId);
       if (el) el.scrollIntoView({ behavior: "smooth" });
