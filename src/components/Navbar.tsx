@@ -78,51 +78,54 @@ export default function Navbar({ className = "" }: NavbarProps) {
         className,
       )}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        {/* Logo/Name */}
-        <a
-          href="#landing"
-          className="text-xl font-bold text-navy hover:text-light-blue transition-colors"
-          onClick={e => {
-            e.preventDefault();
-            scrollOrNavigate('landing');
-          }}
-        >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-blue-500">Abhiraam Aremanda</span>
-        </a>
+      <div className="container mx-auto px-4 grid grid-cols-3 items-center">
+        {/* Left spacer (keeps center alignment) */}
+        <div />
 
-        {/* Desktop Navigation - Centered */}
-        <div className="hidden md:flex flex-1 justify-center space-x-8">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollOrNavigate(item.id)}
-              className={cn(
-                "relative group capitalize text-gray-600 transition-colors duration-100",
-                activeSection === item.id && "text-[#98d6ff] font-medium"
-              )}
-            >
-              {item.label}
-              <span
-                className={
-                  "absolute bottom-0 left-0 h-0.5 w-full origin-center scale-x-0 transform bg-[#98d6ff] group-hover:animate-underline-hover duration-400"
-                }
-              />
-            </button>
-          ))}
+        {/* Center: Name (click scrolls to landing) */}
+        <div className="flex justify-center">
+          <a
+            href="#landing"
+            className="text-xl font-bold text-navy hover:text-light-blue transition-colors"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollOrNavigate("landing");
+            }}
+          >
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-blue-500">Abhiraam Aremanda</span>
+          </a>
         </div>
 
-        {/* Right side: PDF icon */}
-        {/* Right side: PDF icon removed */}
+        {/* Right: nav items (desktop) and mobile menu button */}
+        <div className="flex justify-end items-center gap-4">
+          <div className="hidden md:flex space-x-8">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollOrNavigate(item.id)}
+                className={cn(
+                  "relative group capitalize text-gray-600 transition-colors duration-100",
+                  activeSection === item.id && "text-[#98d6ff] font-medium"
+                )}
+              >
+                {item.label}
+                <span
+                  className={
+                    "absolute bottom-0 left-0 h-0.5 w-full origin-center scale-x-0 transform bg-[#98d6ff] group-hover:animate-underline-hover duration-400"
+                  }
+                />
+              </button>
+            ))}
+          </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-gray-600 hover:text-light-blue"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          <button
+            className="md:hidden text-gray-600 hover:text-light-blue"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}

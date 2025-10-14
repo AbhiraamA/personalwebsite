@@ -268,7 +268,7 @@ export default function Home() {
         <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center gap-8 px-4">
           {/* LEFT: Intro text */}
           <div className="flex-1 text-left">
-            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3">Hello! <span className="inline-block align-middle">👋</span></h1>
+            <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3">Hi! <span className="inline-block align-middle">✨</span></h1>
             <h2 className="text-4xl md:text-5xl font-bold text-sky-400 mb-5">I'm <span className="text-[#2EA0FF]">Abhi Aremanda</span></h2>
             <p className="text-3xl md:text-4xl text-[#98d6ff] font-semibold">
               <TypewriterWords words={["Software Engineer", "Machine Learning Engineer", "Data Scientist", "Data Analyst", "Researcher", "Eagle Scout", "Athlete", "Writer", "Developer", "six seven"]} />
