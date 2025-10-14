@@ -397,6 +397,136 @@ export default function Home() {
       {/* Tech section removed from homepage per request */}
 
 
+      {/* EXPERIENCE SECTION (merged from experience/page.tsx) */}
+      <section id="experience" className="py-24 px-4 md:px-8 bg-background">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col items-center mb-8">
+            <h2 className="text-3xl font-bold text-white text-center">Experience</h2>
+            <div className="flex justify-center items-center w-3/4 max-w-[240px] mx-auto mt-2">
+              <div className="h-0.5 w-full bg-blue-400 rounded" />
+            </div>
+          </div>
+          <div className="overflow-x-auto">
+            <div className="relative">
+              {/* Horizontal timeline for experiences */}
+              <div className="flex gap-6 overflow-x-auto pb-4" style={{scrollSnapType:'x mandatory'}}>
+                {[
+                  { role: "Data Science Intern", institution: "New York Red Bulls", startDate: "2025-09-01", endDate: "Present", image: `${basePath}/logos/New_York_Red_Bulls_logo.svg.png` },
+                  { role: "Data Analyst", institution: "Carolina Baseball", startDate: "2024-09-01", endDate: "Present", image: `${basePath}/logos/baseball log.jpeg` },
+                  { role: "Software Engineer Intern", institution: "Pearson", startDate: "2025-06-01", endDate: "2025-08-31", image: `${basePath}/logos/pearsonlog.png` },
+                  { role: "Research Assistant", institution: "UNC School of Medicine", startDate: "2024-07-01", endDate: "2025-03-31", image: `${basePath}/logos/fmri-log.png` },
+                  { role: "Machine Learning Intern", institution: "Epic Hire, Inc.", startDate: "2024-09-01", endDate: "2024-11-30", image: `${basePath}/logos/epichire_logo.jpeg` },
+                  { role: "Project Team Member", institution: "CS+Social Good", startDate: "2024-01-01", endDate: "2024-05-31", image: `${basePath}/logos/unc-cs-sg.jpeg` },
+                ].map((exp, idx) => (
+                  <div key={idx} className="min-w-[260px] bg-white rounded-xl shadow p-4 flex flex-col items-center justify-between" style={{scrollSnapAlign:'start'}}>
+                    <img src={exp.image} alt={exp.institution + ' logo'} className="w-14 h-14 object-contain rounded mb-2" style={{ background: '#fff' }} />
+                    <div className="text-sm text-[#38bdf8] font-medium">{exp.startDate} - {exp.endDate}</div>
+                    <div className="font-bold text-lg text-[#13294B]">{exp.role}</div>
+                    <div className="text-sm text-gray-600">{exp.institution}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CLUBS SECTION (merged from experience/page.tsx) */}
+      <section id="interests" className="py-8 px-4 md:px-8 bg-card">
+        <div className="w-full max-w-screen-xl mx-auto">
+          <div className="flex flex-col items-center mb-8">
+            <h2 className="text-3xl font-bold text-white text-center">Clubs</h2>
+            <div className="flex justify-center items-center w-3/4 max-w-[240px] mx-auto mt-2">
+              <div className="h-0.5 w-full bg-blue-400 rounded" />
+            </div>
+          </div>
+          <div className="mb-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 px-4">
+              {[
+                { name: "UNC CS Ambassadors", role: "Ambassador", description: "Representing and supporting the UNC Computer Science Department at outreach, recruitment events, and mental health initiatives.", image: `${basePath}/logos/UNC-Computer-Science.png`, link: "https://cs.unc.edu/student-life/unc-cs-student-ambassador-program/#:~:text=Student%20Ambassadors%20(SAs)%20are%20a,UNC%20alumni%2C%20and%20business%20professionals." },
+                { name: "Kappa Theta Pi", role: "Treasurer", description: "Professional Co-Ed Technology and Computer Science Organization at UNC", image: `${basePath}/clubs/ktp_unc_logo.jpeg`, roleColor: "text-blue-600", link: "https://www.ktpunc.com/" },
+                { name: "Carolina AR/VR Club", role: "Member/Developer", description: "Exploring and building augmented and virtual reality projects with UNC's AR/VR community.", image: `${basePath}/logos/CARVR-logo-white.avif`, link: "https://arvr.web.unc.edu/" },
+                { name: "HackNC", role: "Logistics Board", description: "Organizing and participating in UNC's largest hackathon and tech community.", image: `${basePath}/logos/hacknc-2024.avif`, link: "https://hacknc.com/" },
+                { name: "Special Olympics Club", role: "Volunteer", description: "Supporting and volunteering for Special Olympics events and athletes at UNC.", image: `${basePath}/logos/UNC-SO.jpeg`, link: "https://www.instagram.com/unc_so/" },
+              ].map((club) => {
+                const roleColor = club.roleColor ? club.roleColor : "text-[#a855f7]";
+                return (
+                  <a
+                    key={club.name}
+                    href={club.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <div
+                      className="relative w-full h-64 overflow-hidden transition-shadow flex flex-col items-center justify-start px-6 py-4 rounded-1xl bg-white text-black hover:shadow-[0_0_32px_8px_#38bdf8,0_0_0_4px_#0ea5e9] hover:border-[#0ea5e9] border border-border"
+                    >
+                      <div className="w-full h-20 flex items-center justify-center mb-0 z-0">
+                        <img src={club.image} alt={club.name} className="w-16 h-16 object-contain rounded-full" style={{ maxWidth: '80%' }} />
+                      </div>
+                      <div className="flex flex-col items-center justify-center flex-1 w-full text-center z-0">
+                        <h4 className="text-base font-bold mb-1 text-black">{club.name}</h4>
+                        {club.role && (
+                          <div className={`text-xs italic mb-1 ${roleColor}`}>{club.role}</div>
+                        )}
+                        <p className="text-xs text-gray-600">{club.description}</p>
+                      </div>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROJECTS SECTION (merged from projects/page.tsx) */}
+      <section id="projects" className="py-24 px-4 md:px-8 bg-background">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col items-center mb-8">
+            <h2 className="text-3xl font-bold text-white text-center">Projects and Work</h2>
+            <div className="flex justify-center items-center w-3/4 max-w-[240px] mx-auto mt-2">
+              <div className="h-0.5 w-full bg-blue-400 rounded" />
+            </div>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 px-4">
+            {[
+              { title: "Coach Success Modeling – San Francisco 49ers", description: "Collaborated with the San Francisco 49ers to model how past experience can predict future coaching success.", image: `${basePath}/logos/coach-success.png`, tech: ["Python", "Pandas", "scikit-learn", "Excel"], github: "https://github.com/AbhiraamA" },
+              { title: "Milwaukee Bucks Business Analytics Hackathon", description: "Placed 2nd for developing a model that predicted purchase likelihood for new partial ticket plans.", image: `${basePath}/logos/buckshack.png`, tech: ["Python", "scikit-learn", "Pandas", "Matplotlib"], github: "https://github.com/AbhiraamA" },
+              { title: "Pearson", description: "Built dynamic agent generation workflows using CrewAI to automate test script generation", image: `${basePath}/logos/pearsonlog.png`, tech: ["Python", "CrewAI"], github: "https://github.com/AbhiraamA" },
+              { title: "EpicHire Recommendation Engine", description: "Developed a club–employer recommendation engine using jobBERT embeddings.", image: `${basePath}/logos/epichire_logo.jpeg`, tech: ["Python", "Pandas", "scikit-learn", "jobBERT"], github: "https://github.com/AbhiraamA" },
+              { title: "AI Study Buddy", description: "Created an intelligent study assistant that leverages structured knowledge bases to generate adaptive questions.", image: `${basePath}/logos/study-buddy.png`, tech: ["Python", "FastAPI", "PostgreSQL", "PyTest", "OpenAI 04-mini"], github: "https://github.com/AbhiraamA" },
+              { title: "The Traveling Tourist Problem", description: "Hackathon-winning web app using Tour-Pedia API to recommend hidden attractions and build itineraries for lesser-known destinations.", image: `${basePath}/logos/tourist.gif`, tech: ["JavaScript", "HTML", "CSS", "Python", "Tour-Pedia API"], github: "https://github.com/AbhiraamA" },
+            ].map((project, idx) => (
+              <a
+                key={idx}
+                href={project.github || '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <div className="relative w-full h-96 overflow-hidden transition-shadow flex flex-col items-center justify-start px-6 py-4 rounded-2xl bg-white text-[#13294B] hover:shadow-[0_0_32px_8px_#38bdf8,0_0_0_4px_#0ea5e9] hover:border-[#0ea5e9] border border-border">
+                  <div className="w-full h-48 flex items-center justify-center mb-2 z-0">
+                    <img src={project.image} alt={project.title} className="object-contain rounded-lg max-h-44 max-w-full" />
+                  </div>
+                  <div className="flex flex-col items-center justify-center flex-1 w-full text-center z-0">
+                    <h4 className="text-lg font-bold mb-1 text-[#13294B]">{project.title}</h4>
+                    <p className="text-sm mb-2 text-[#13294B]">{project.description}</p>
+                    {project.tech && (
+                      <div className="flex flex-wrap gap-2 justify-center mt-2">
+                        {project.tech.map((tech, i) => (
+                          <span key={i} className="px-3 py-1 rounded bg-[#e3e9f4] text-[#13294B] text-xs font-semibold">{tech}</span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
   <footer className="bg-card text-white py-8 px-4">
         <div className="container mx-auto max-w-6xl">
