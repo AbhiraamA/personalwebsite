@@ -231,7 +231,7 @@ export default function Home() {
             <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-3">Hi! <span className="inline-block align-middle">✨</span></h1>
             <h2 className="text-4xl md:text-5xl font-bold text-sky-400 mb-5">I'm <span className="text-[#2EA0FF]">Abhi Aremanda</span></h2>
             <p className="text-3xl md:text-4xl text-[#98d6ff] font-semibold">
-              <TypewriterWords words={["Software Engineer", "Machine Learning Engineer", "Data Scientist", "Data Analyst", "Researcher", "Eagle Scout", "Athlete", "Writer", "Developer", "six seven"]} />
+              <TypewriterWords words={["Software Engineer", "Machine Learning Engineer", "Data Scientist", "Data Analyst", "Researcher", "Eagle Scout", "Athlete", "Writer", "Developer"]} />
             </p>
           </div>
 
